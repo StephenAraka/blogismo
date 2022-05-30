@@ -40,7 +40,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts }) {
-  console.log(posts[0]);
 
   return (
     <div className={styles.container}>
@@ -53,12 +52,8 @@ export default function Home({ posts }) {
       <main className={styles.main}>
         {posts.map((post) => (
           <BlogCard
-            title={post.title}
-            author={post.author}
-            coverPhoto={post.coverPhoto}
             key={post.id}
-            datePublished={post.datePublished}
-            slug={post.slug}
+            {...post}
           />
         ))}
       </main>
